@@ -1,10 +1,10 @@
 <?php
 
-$sid = $_GET['sid'];
+$id = $_GET['sid'];
 
 require_once 'connect.php';
 
-$edit_query = "SELECT * FROM users WHERE id=$sid";
+$edit_query = "SELECT * FROM users WHERE id=$id";
 
 $result = mysqli_query($conn, $edit_query);
 
@@ -28,7 +28,7 @@ $row = mysqli_fetch_assoc($result);
         <div class="col-12 col-md-9 col-lg-7 col-xl-6 border border-success rounded-2 mt-5">
             <h2 class="text-uppercase text-center my-2">Edit user</h2>
             <form class="mx-2" action="process_edit_user.php" method="post">
-                <input type="hidden" name="sid" value="<?php echo $row['id'] ?>">
+                <input type="hidden" name="sid" value="<?php echo $id; ?>">
                 <div class="form-outline mb-4">
                     <label class="form-label" for="name">Your Name</label>
                     <input type="text" id="name" class="form-control form-control-lg" name="name" value="<?php echo $row['name'] ?>" />

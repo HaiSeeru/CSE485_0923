@@ -11,8 +11,8 @@ require_once 'connect.php';
 $query = "INSERT INTO users (name, join_date, mail, username, pwd) 
             VALUES ('$name', '$date', '$mail', '$username', '$pwd')";
 
-mysqli_query($conn, $query);
+if (mysqli_query($conn, $query)) {
+    header('Location: ../user.php');
+}
 
 $conn->close();
-
-header('Location: ../user.php');

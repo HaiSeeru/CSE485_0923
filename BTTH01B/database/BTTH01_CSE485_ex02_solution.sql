@@ -42,4 +42,46 @@ WHERE tieude LIKE '%yêu%' OR tieude LIKE '%thương%' OR tieude LIKE '%anh%' OR
 SELECT * FROM baiviet AS bv
 WHERE tieude LIKE '%yêu%' OR tieude LIKE '%thương%' OR tieude LIKE '%anh%' OR tieude LIKE '%em%'
 		OR ten_bhat LIKE '%yêu%' OR ten_bhat LIKE '%thương%' OR ten_bhat LIKE '%anh%' OR ten_bhat LIKE '%em%';
-        
+
+--  Tạo 1 view có tên vw_Music để hiển thị thông tin về Danh sách các bài viết kèm theo Tên thể loại và tên tác giả
+CREATE VIEW vw_Music AS
+SELECT bv.ma_bviet, bv.tieude, tl.ten_tloai, tg.ten_tgia FROM baiviet AS bv
+INNER JOIN theloai AS tl ON bv.ma_tloai = tl.ma_tloai
+INNER JOIN tacgia AS tg ON bv.ma_tgia = tg.ma_tgia;
+
+SELECT * FROM vw_Music;
+
+-- Tạo 1 thủ tục có tên sp_DSBaiViet với tham số truyền vào là Tên thể loại và trả về danh sách
+-- bài viết của thể loại đó. Nếu thể loại không tồn tại thì hiển thị thông báo lỗi.
+DELIMITER //
+CREATE PROCEDURE sp_DSBaiViet(IN input_ten_tloai VARCHAR(50))
+BEGIN
+    DECLARE group_ma_tloai INT;
+    
+    SELECT ma_tloai INTO group_ma_tloai FROM theloai WHERE ten_tloai = input_ten_tloai;
+    
+    IF group_ma_tloai IS NULL THEN
+        SELECT 'Thể loại không tồn tại' AS err;
+    ELSE
+        SELECT ma_bviet, tieude, ten_bhat FROM baiviet
+        WHERE ma_tloai = group_ma_tloai;
+    END IF;
+END //
+DELIMITER ;
+CALL sp_DSBaiViet('a');
+
+-- Thêm mới cột SLBaiViet vào trong bảng theloai. Tạo 1 trigger có tên tg_CapNhatTheLoai để
+-- khi thêm/sửa/xóa bài viết thì số lượng bài viết trong bảng theloai được cập nhật theo
+ALTER TABLE theloai
+ADD SLBaiViet INT DEFAULT 0;
+
+DELIMITER //
+CREATE TRIGGER tg_CapNhatTheLoai
+AFTER INSERT ON baiviet FOR EACH ROW
+BEGIN
+    UPDATE theloai
+    SET SLBaiViet = SLBaiViet + 1
+    WHERE ma_tloai = NEW.ma_tloai;
+END;
+//
+DELIMITER ;

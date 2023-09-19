@@ -1,10 +1,10 @@
 <?php
 
-$sid = $_GET['sid'];
+$id = $_GET['sid'];
 
 require_once 'connect.php';
 
-$del_query = "DELETE FROM users WHERE id=$sid";
+$del_query = "DELETE FROM users WHERE id=$id";
 
 mysqli_query($conn, $del_query);
 
