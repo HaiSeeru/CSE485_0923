@@ -15,4 +15,4 @@ mysqli_query($conn, $query);
 
 $conn->close();
 
-echo "Successfully";
+header('Location: ../user.php');
