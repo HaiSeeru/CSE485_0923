@@ -59,7 +59,7 @@ try {
                 </div>
 
                 <div class="d-flex justify-content-center pb-3">
-                    <button type="reset" class="btn btn-outline-danger me-2">Cancel</button>
+                    <a href="../user.php" class="btn btn-outline-danger me-2">Cancel</a>
                     <button type="submit" class="btn btn-success">OK</button>
                 </div>
             </form>
