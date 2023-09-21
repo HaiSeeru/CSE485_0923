@@ -6,13 +6,15 @@ $date = date('Y-m-d');
 $username = $_POST['user-name'];
 $pwd = $_POST['pwd'];
 
-require_once 'connect.php';
+try {
+    require_once 'connect.php';
 
-$query = "INSERT INTO users (name, join_date, mail, username, pwd) 
+    $sql = "INSERT INTO users (name, join_date, mail, username, pwd) 
             VALUES ('$name', '$date', '$mail', '$username', '$pwd')";
+    $query = $conn->prepare($sql);
+    $query->execute();
 
-if (mysqli_query($conn, $query)) {
-    header('Location: ../user.php');
+    header("Location: ../user.php");
+} catch (PDOException $e) {
+    echo $e->getMessage();
 }
-
-$conn->close();

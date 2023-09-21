@@ -1,11 +1,22 @@
 <?php
 
-$id = $_GET['sid'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
 
-require_once 'connect.php';
 
-$del_query = "DELETE FROM users WHERE id=$id";
+try {
+    require_once 'connect.php';
 
-mysqli_query($conn, $del_query);
+    $sql = "DELETE FROM users WHERE id = $id";
 
-header('location: ../user.php');
+    $query = $conn->prepare($sql);
+    $query->execute();
+
+    $rowCount = $query->rowCount();
+    if ($rowCount > 0) {
+        header("Location: ../user.php");
+    }
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}

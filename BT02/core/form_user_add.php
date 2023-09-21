@@ -35,7 +35,12 @@
 
                 <div class="form-outline mb-4">
                     <label class="form-label" for="pwd">Password</label>
-                    <input type="password" id="pwd" class="form-control form-control-lg" name="pwd" />
+                    <input type="password" id="pwd" class="form-control form-control-lg" name="pwd1" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="pwd">Re-type Password</label>
+                    <input type="password" id="pwd" class="form-control form-control-lg" name="pwd2" />
                 </div>
 
                 <div class="d-flex justify-content-center pb-3">

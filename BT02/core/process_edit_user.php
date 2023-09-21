@@ -6,10 +6,14 @@ $username = $_POST['user-name'];
 $pwd = $_POST['pwd'];
 $id = $_POST['sid'];
 
-require_once 'connect.php';
+try {
+    require_once 'connect.php';
 
-$edit_query = "UPDATE users SET name = '$name', mail = '$mail', username = '$username', pwd = '$pwd' WHERE id = $id";
-
-mysqli_query($conn, $edit_query);
+    $sql = "UPDATE users SET name = '$name', mail = '$mail', username = '$username', pwd = '$pwd' WHERE id = $id";
+    $query = $conn->prepare($sql);
+    $query->execute();
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
 
 header('Location: ../user.php');

@@ -1,3 +1,3 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "haiseu791523", "web");
+$conn = new PDO("mysql:host=localhost;dbname=web", "root", "haiseu791523");
