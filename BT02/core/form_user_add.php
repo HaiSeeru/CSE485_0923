@@ -14,6 +14,22 @@
     <div class="container h-100 d-flex justify-content-center">
         <div class="col-12 col-md-9 col-lg-7 col-xl-6 border border-success rounded-2 mt-5">
             <h2 class="text-uppercase text-center my-2">Add User</h2>
+            <?php
+            if (isset($_GET['response'])) {
+                $response1 = $_GET['response'];
+            ?>
+
+                <div class="toast align-items-center text-white bg-info border-0 position-absolute top-0 end-0 mt-3 me-3" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            <?php echo $response1 ?>
+                        </div>
+                        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
             <form class="mx-2" action="process_user_add.php" method="post">
 
                 <div class="form-outline mb-4">
@@ -51,6 +67,17 @@
         </div>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        var toastList = toastElList.map(function(toastEl) {
+            return new bootstrap.Toast(toastEl);
+        });
+
+        if (toastList.length > 0) {
+            toastList[0].show();
+        }
+    </script>
 
 </body>
 

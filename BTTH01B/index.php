@@ -12,30 +12,9 @@
 
 <body>
     <div class="row vh-100 container-fluid mx-auto">
-        <header class="fixed-top bg-light">
-            <div class="container d-flex justify-content-between align-items-center">
-                <div class="logo d-inline-flex align-items-center">
-                    <img src="./image/logo.png" alt="">
-                    <h1>Music</h1>
-                    <span class="h1">Garden</span>
-                    <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-2">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.php">TRANG CHỦ</a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="login.php">ĐĂNG NHẬP</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Tìm</button>
-                </form>
-            </div>
-        </header>
+        <?php
+        include './Component/header.php';
+        ?>
 
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
@@ -103,9 +82,10 @@
         </div>
 
 
-        <div class="footer container-fluid text-center">
-            <h3>TLU'S MUSIC GARDEN</h3>
-        </div>
+        <?php
+        include './Component/footer.php';
+        ?>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 

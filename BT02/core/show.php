@@ -1,9 +1,15 @@
 <?php
 
 try {
+    if (isset($_GET['page'])) {
+        $page = $_GET['page'];
+    } else {
+        $page = 1;
+    }
     require_once 'connect.php';
 
-    $sql = "SELECT id, name, join_date, mail, username FROM users";
+    $n = $page * 10;
+    $sql = "SELECT id, name, join_date, mail, username FROM users LIMIT 10 OFFSET $n";
 
     $query = $conn->prepare($sql);
     $query->execute();

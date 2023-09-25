@@ -15,7 +15,8 @@ try {
 
     $rowCount = $query->rowCount();
     if ($rowCount > 0) {
-        header("Location: ../user.php");
+        $response = "Delete Complete!";
+        header("Location: ../user.php?response_del=$response");
     }
 } catch (PDOException $e) {
     echo $e->getMessage();
