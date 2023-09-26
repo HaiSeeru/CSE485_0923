@@ -22,6 +22,28 @@
 </head>
 
 <body>
+    <?php
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    }
+    try {
+        require_once './Component/connect.php';
+        $sql = "SELECT baiviet.*, theloai.ten_tloai, tacgia.ten_tgia FROM baiviet 
+                INNER JOIN theloai ON baiviet.ma_tloai = theloai.ma_tloai    
+                INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia           
+                WHERE baiviet.ma_bviet = $id";
+
+        $query = $conn->prepare($sql);
+        $query->execute();
+
+        $post = $query->fetchAll();
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+
+    ?>
+
+
     <div class="container-fluid vh-100 mx-auto">
         <?php
         include './Component/header.php';
@@ -29,16 +51,18 @@
 
         <div class="container my-5" style="height: 70%;">
             <div class="song_detail row">
-                <div class="col-md-3">
+                <div class="col-md-3 d-flex align-items-start">
                     <!-- Hình ảnh bên trái -->
-                    <img src="./image/bh-1.jpg" class="imgsong img-fluid" alt="Hình ảnh bài viết">
+                    <img src="./image/bh-<?= $id; ?>.jpg" class="imgsong img-fluid" alt="Hình ảnh bài viết">
                 </div>
                 <div class="col-md-9">
                     <!-- Nội dung bên phải -->
-                    <h1 class="my-3 text-primary">Cây và gió</h1>
-                    <p class="lead">Ngày đăng: 26/09/2023</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec augue velit. Integer nec sapien quis metus gravida tristique. Vivamus lacinia elit eu purus rhoncus, in condimentum sapien congue.</p>
-                    <p>Suspendisse potenti. Sed bibendum quam ac odio tristique, at aliquam eros fringilla. Sed iaculis aliquet purus, nec dignissim odio vehicula in. Nulla facilisi.</p>
+                    <h1 class="text-primary"><?php echo $post[0]['ten_bhat'] ?></h1>
+                    <p><strong>Bài hát: </strong><?php echo $post[0]['ten_bhat'] ?></p>
+                    <p><strong>Thể loại: </strong><?php echo $post[0]['ten_tloai'] ?></p>
+                    <p><strong>Tóm tắt: </strong><?php echo $post[0]['tomtat'] ?></p>
+                    <p><strong>Nội dung: </strong><?php echo $post[0]['noidung'] ?></p>
+                    <p><strong>Tác giả: </strong><?php echo $post[0]['ten_tgia'] ?></p>
                 </div>
             </div>
         </div>
