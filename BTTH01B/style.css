@@ -8,18 +8,6 @@ body,html {
     height: 100%
 }
 
-#header {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 32px;
-    background: #023b6d;
-    display: flex;
-    align-items: center
-}
-
-
 .logo img{
     height: 100px;
 }

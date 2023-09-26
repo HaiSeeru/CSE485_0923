@@ -1,4 +1,4 @@
-<header class="fixed-top bg-light">
+<header class="bg-light" style="height: 100px;">
     <div class="container d-flex justify-content-between align-items-center">
         <div class="logo d-inline-flex align-items-center">
             <img src="./image/logo.png" alt="">

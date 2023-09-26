@@ -43,13 +43,12 @@
             </button>
         </div>
 
-
         <div class="content container-fluid text-center mt-5">
             <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
                 <div class="col">
                     <div class="song d-flex flex-column mb-3 border border-success-subtle ">
                         <img src="./image/bh-1.jpg" alt="">
-                        <a href="" class="link-underline link-underline-opacity-0">Chưa bao giờ</a>
+                        <a href="detail.php" class="link-underline link-underline-opacity-0">Chưa bao giờ</a>
                     </div>
                 </div>
                 <div class="col">
