@@ -42,8 +42,10 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-
-        <div class="content container-fluid text-center mt-5">
+        <div class="title container-fluid text-center text-primary">
+            <h2 style="font-weight: 400;">TOP BÀI HÁT YÊU THÍCH</h2>
+        </div>
+        <div class=" content container-fluid text-center mt-2">
             <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
                 <div class="col">
                     <div class="song d-flex flex-column mb-3 border border-success-subtle ">
