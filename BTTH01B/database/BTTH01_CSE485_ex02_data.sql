@@ -3,29 +3,29 @@ use BTTH01_CSE485;
 
 -- data tacgia 
 create table tacgia (
-	ma_tgia int unsigned not null primary key,
+	ma_tgia int unsigned not null auto_increment primary key,
     ten_tgia varchar(100) not null,
     hinh_tgia varchar(100)
 );
-
-INSERT INTO tacgia (ma_tgia, ten_tgia, hinh_tgia) VALUES
-	(1, 'Sơn Tùng', 'st.jpg'),
-    (2, 'Trung Quân', 'tq.jpg'),
-    (3, 'Nhacvietplus', 'nvpl.jpg'),
-    (4, 'Lê Văn Quang', 'le_van_quang.jpg'),
-    (5, 'Nguyễn Thị Lan', 'nguyen_thi_lan.jpg');
+select * from tacgia;
+INSERT INTO tacgia (ten_tgia, hinh_tgia) VALUES
+	('Sơn Tùng', 'st.jpg'),
+    ('Trung Quân', 'tq.jpg'),
+    ('Nhacvietplus', 'nvpl.jpg'),
+    ('Lê Văn Quang', 'le_van_quang.jpg'),
+    ('Nguyễn Thị Lan', 'nguyen_thi_lan.jpg');
 
 -- Thể loại 
 create table theloai(
-	ma_tloai int unsigned not null primary key,
+	ma_tloai int unsigned not null auto_increment primary key,
     ten_tloai varchar(50) not null
 );
-
-INSERT INTO theloai (ma_tloai, ten_tloai) VALUES
-	(1, 'Nhạc trữ tình'),
-    (2, 'Nhạc rock'),
-    (3, 'Nhạc đồng quê'),
-    (4, 'Nhạc ballad');
+select * from theloai
+INSERT INTO theloai (ten_tloai) VALUES
+	('Nhạc trữ tình'),
+    ('Nhạc rock'),
+    ('Nhạc đồng quê'),
+    ('Nhạc ballad');
 
 -- bảng Baiviet 
 create table baiviet(
@@ -41,7 +41,7 @@ create table baiviet(
     ngayviet datetime not null,
     hinhanh varchar(200)
 );
-
+select * from baiviet
 INSERT INTO baiviet (ma_bviet, tieude, ten_bhat, ma_tloai, tomtat, noidung, ma_tgia, ngayviet, hinhanh) VALUES
 	(1, 'Tình yêu', 'Yêu đơn phương', 1, 'Câu chuyện về tình yêu đơn phương của chàng trai', 'Nội dung bài viết 1', 1, NOW(), 'hinh1.jpg'),
 	(2, 'Anh và em', 'Anh không đòi quà', 1, 'Tóm tắt bài viết 2', 'Nội dung bài viết 2', 2, NOW(), 'hinh2.jpg'),
