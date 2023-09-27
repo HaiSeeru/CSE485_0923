@@ -17,31 +17,22 @@
         ?>
         <div class="content text-center mx-auto">
             <table class="table">
-                <a href="./add_category.php" class="nav nav-link">
-                    <button type="button" class="btn btn-success ms-5 d-flex justify-content-start">Thêm mới</button>
+                <a href="./add_category.php" class="nav nav-link ms-5 ps-5">
+                    <button type="button" class="btn btn-success d-flex justify-content-start ms-5">Thêm mới</button>
                 </a>
 
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">Mã thể loại</th>
                         <th scope="col">Tên thể loại</th>
                         <th scope="col">Sửa</th>
                         <th scope="col">Xóa</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Nhạc trữ tình</td>
-                        <td><a href="./edit_category.php"><i class="bi bi-pencil-square"></i></a></td>
-                        <td><i class="bi bi-trash"></i></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Nhạc cách mạng</td>
-                        <td><a href="./edit_category.php"><i class="bi bi-pencil-square"></i></a></td>
-                        <td><i class="bi bi-trash"></i></td>
-                    </tr>
+                    <?php
+                    include '../Component/category_show.php';
+                    ?>
                 </tbody>
             </table>
 

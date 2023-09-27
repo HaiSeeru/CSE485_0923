@@ -17,16 +17,20 @@
         ?>
         <div class="content text-center mx-auto" style="width: 70%;">
             <h3 style="text-align: center; font-weight: 700;">THÊM MỚI THỂ LOẠI</h3>
-            <div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping">Tên thể loại</span>
-                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
-            </div>
-            <div class="button-add-back">
-                <button type="button" class="btn btn-success m-2">Thêm</button>
-                <a href="./category.php">
-                    <button type="button" class="btn btn-warning m-2">Quay Lại</button>
-                </a>
-            </div>
+            <form action="../Component/process_add_category.php" method="post">
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" for="name_category">Tên thể loại</span>
+                    <input type="text" class="form-control" name="name_category">
+                </div>
+                <div class="btn_add_back">
+                    <button type="submit" class="btn btn-success m-2">
+                        Thêm
+                    </button>
+                    <a href="category.php" class="btn btn-warning m-2">Quay lại</a>
+
+                </div>
+
+            </form>
 
         </div>
 
