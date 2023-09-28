@@ -19,8 +19,7 @@ if (isset($_POST['btnSubmit'])) {
             if (password_verify($pwd, $pass_hash)) {
                 session_start();
                 $_SESSION['isLogin'] = $acc[4];
-                $res1 = "Logged in successfully";
-                header("Location: ../user.php?response=$res1");
+                header("Location: ../user.php");
             } else {
                 $res2 = "Incorrect password";
                 header("Location: ../login.php?response=$res2");
