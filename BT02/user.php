@@ -1,3 +1,14 @@
+<?php
+//Dich vu Bao ve
+session_start();
+
+//Kiem tra thong tin
+if (!isset($_SESSION['isLogin'])) {
+    header("Location: login.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

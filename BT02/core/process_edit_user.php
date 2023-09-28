@@ -3,7 +3,6 @@
 $name = $_POST['name'];
 $mail = $_POST['email'];
 $username = $_POST['user-name'];
-$pwd = $_POST['pwd'];
 $id = $_POST['sid'];
 
 try {
@@ -18,7 +17,7 @@ try {
         $response4 = "Account exist";
         header("Location: form_edit_user.php?id=$id&response_edit=" . urlencode($response4));
     } else {
-        $sql = "UPDATE users SET name = '$name', mail = '$mail', username = '$username', pwd = '$pwd' WHERE id = $id";
+        $sql = "UPDATE users SET name = '$name', mail = '$mail', username = '$username' WHERE id = $id";
         $query = $conn->prepare($sql);
         $query->execute();
         $response4 = "Edit successfully";

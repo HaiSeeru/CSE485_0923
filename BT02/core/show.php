@@ -8,8 +8,8 @@ try {
     }
     require_once 'connect.php';
 
-    $n = $page * 10;
-    $sql = "SELECT id, name, join_date, mail, username FROM users LIMIT 10 OFFSET $n";
+    $n = ($page - 1) * 10;
+    $sql = "SELECT id, name, join_date, mail, username FROM users ORDER BY id DESC LIMIT 10 OFFSET $n";
 
     $query = $conn->prepare($sql);
     $query->execute();

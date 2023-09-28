@@ -18,6 +18,9 @@
                 <li class="nav-item m-2">
                     <a class="nav-link" href="file.php"><i class="bi bi-window me-3 text-danger"></i>File</a>
                 </li>
+                <li class="nav-item m-2">
+                    <a class="btn btn-danger" href="./core/logout.php">Log Out</a>
+                </li>
             </ul>
         </div>
     </nav>

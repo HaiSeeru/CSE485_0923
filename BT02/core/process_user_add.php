@@ -19,8 +19,9 @@ try {
         header("Location: form_user_add.php?response=$response1");
     } else {
         $response2 = "Added successfully";
+        $pass_hash = password_hash($pwd, PASSWORD_DEFAULT);
         $sql = "INSERT INTO users (name, join_date, mail, username, pwd) 
-            VALUES ('$name', '$date', '$mail', '$username', '$pwd')";
+            VALUES ('$name', '$date', '$mail', '$username', '$pass_hash')";
         $query = $conn->prepare($sql);
         $query->execute();
         header("Location: ../user.php?response_add=$response2");

@@ -72,10 +72,6 @@ try {
 
                 </div>
 
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="pwd">Password</label>
-                    <input type="password" id="pwd" class="form-control form-control-lg" name="pwd" value="<?php echo $user['pwd'] ?>" />
-                </div>
 
                 <div class="d-flex justify-content-center pb-3">
                     <a href="../user.php" class="btn btn-outline-danger me-2">Cancel</a>
