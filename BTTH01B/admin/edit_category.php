@@ -1,3 +1,22 @@
+<?php
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
+
+try {
+    require_once '../Component/connect.php';
+
+    $sql = "SELECT * FROM theloai WHERE ma_tloai='$id'";
+    $query = $conn->prepare($sql);
+    $query->execute();
+
+    $category = $query->fetch(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo 'Error: ' . $e->getMessage();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,21 +35,25 @@
         include '../Component/header_category.php';
         ?>
         <div class="content text-center mx-auto" style="width: 70%;">
-            <h3 style="text-align: center; font-weight: 700;">SỬA THÔNG TIN THỂ LOẠI</h3>
-            <div class="input-group flex-nowrap my-2">
-                <span class="input-group-text" id="addon-wrapping">Mã Thể Loại</span>
-                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap my-2">
-                <span class="input-group-text" id="addon-wrapping">Tên Thể Loại</span>
-                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
-            </div>
-            <div class="button-add-back">
-                <button type="button" class="btn btn-success m-2">Lưu Lại</button>
-                <a href="./category.php">
-                    <button type="button" class="btn btn-warning m-2">Quay Lại</button>
-                </a>
-            </div>
+            <form action="../Component/process_edit_category.php" method="post">
+                <h3 style="text-align: center; font-weight: 700;">SỬA THÔNG TIN THỂ LOẠI</h3>
+                <div class="input-group flex-nowrap my-2">
+                    <span class="input-group-text" for="id_category">Mã Thể Loại</span>
+                    <input type="text" class="form-control" name="id_category" value="<?= $category['ma_tloai'] ?>" readonly style="cursor:pointer">
+                </div>
+                <div class="input-group flex-nowrap my-2">
+                    <span class="input-group-text" for="name_category">Tên Thể Loại</span>
+                    <input type="text" class="form-control" name="name_category" value="<?= $category['ten_tloai'] ?>">
+                </div>
+                <div class="btn_add_back">
+                    <button type="submit" class="btn btn-success m-2">
+                        Lưu lại
+                    </button>
+                    <a href="category.php" class="btn btn-warning m-2">Quay lại</a>
+
+                </div>
+            </form>
+
 
         </div>
 

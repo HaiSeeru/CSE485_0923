@@ -18,7 +18,7 @@ foreach ($categories as $category) {
     <tr>
         <th><?php echo $category[0] ?></th>
         <td><?php echo $category[1] ?></td>
-        <td><a href="./edit_category.php"><i class="bi bi-pencil-square"></i></a></td>
+        <td><a href="./edit_category.php?id=<?= $category[0] ?>"><i class="bi bi-pencil-square"></i></a></td>
         <td>
             <a href="" class="btn-primary" data-bs-toggle="modal" data-bs-target="#<?php echo $modalId ?>">
                 <i class="bi bi-trash3"></i>
