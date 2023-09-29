@@ -11,13 +11,15 @@ try {
     $rowCount = $query_check->rowCount();
 
     if ($rowCount > 0) {
-        header('Location: ../admin/edit_category');
+        $response1 = "This category is already available";
+        header("Location: ../admin/edit_category.php?id=$id&response_error=" . urlencode($response1));
     } else {
         $sql = "UPDATE theloai SET ten_tloai = '$name' WHERE ma_tloai = $id";
         $query = $conn->prepare($sql);
         $query->execute();
 
-        header("Location: ../admin/category.php");
+        $response2 = "Edit successfully!";
+        header("Location: ../admin/category.php?response_done1=$response2");
     }
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();

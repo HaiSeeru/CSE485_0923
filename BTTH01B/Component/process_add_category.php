@@ -12,13 +12,13 @@ try {
 
     if ($rowCount > 0) {
         $response1 = "This category is already available";
-        header('Location: ../admin/add_category');
+        header("Location: ../admin/add_category.php?response_error=$response1");
     } else {
         $response2 = "Added successfully!";
         $sql = "INSERT INTO theloai(ten_tloai) VALUES ('$name_category')";
         $query = $conn->prepare($sql);
         $query->execute();
-        header('Location: ../admin/category.php');
+        header("Location: ../admin/category.php?response_done=$response2");
     }
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();

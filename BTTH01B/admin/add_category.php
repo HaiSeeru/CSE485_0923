@@ -16,6 +16,10 @@
         include '../Component/header_category.php';
         ?>
         <div class="content text-center mx-auto" style="width: 70%;">
+            <?php
+            include '../Component/response_category.php';
+            ?>
+
             <h3 style="text-align: center; font-weight: 700;">THÊM MỚI THỂ LOẠI</h3>
             <form action="../Component/process_add_category.php" method="post">
                 <div class="input-group flex-nowrap">
@@ -41,7 +45,16 @@
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        var toastList = toastElList.map(function(toastEl) {
+            return new bootstrap.Toast(toastEl);
+        });
 
+        if (toastList.length > 0) {
+            toastList[0].show();
+        }
+    </script>
 </body>
 
 </html>
