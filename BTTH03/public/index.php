@@ -15,10 +15,7 @@ if($controller == 'home'){
     require_once APP_ROOT.'/CSE485/BTTH03/app/controllers/SongController.php';
     $songController = new SongController();
     $songController->addNewSong();
-}elseif($controller == 'category' && $action=='index'){
-    require_once APP_ROOT.'/CSE485/BTTH03/app/controllers/CategoryController.php';
-    $songController = new SongController();
-    $songController->addNewSong();
+    
 }
 else{
     echo "Không tồn tại URL";

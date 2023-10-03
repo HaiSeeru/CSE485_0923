@@ -25,7 +25,7 @@ class SongService
         
     }
 
-    public function addNewSong(){
+    public function addNewSong($name_song, $name_tg, $id_category){
         try{
             $dbConnection = new DBConnection();
             $conn = $dbConnection->getConn();

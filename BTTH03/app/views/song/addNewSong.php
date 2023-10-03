@@ -22,7 +22,7 @@
                 </div>
                 <div class="input-group flex-nowrap mt-2">
                     <span class="input-group-text" for="name_tg">Ca sĩ</span>
-                    <input type="text" class="form-control" name="tg">
+                    <input type="text" class="form-control" name="name_tg">
                 </div>
                 <div class="input-group flex-nowrap mt-2">
                     <span class="input-group-text" for="id_category">ID thể loại</span>
