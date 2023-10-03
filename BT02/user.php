@@ -69,6 +69,7 @@ if (!isset($_SESSION['isLogin'])) {
                         <th scope="col">Join Date</th>
                         <th scope="col">Mail</th>
                         <th scope="col">Username</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 </head>
@@ -27,21 +27,33 @@
     }
     ?>
     <div class="container text-center mx-auto my-5 py-5 border border-success rounded-2 col-md-5 bg-light">
-        <h3 class="mb-5">LOGIN</h3>
-        <form action="./core/process_login.php" method="post" class="mx-5">
+        <h3 class="mb-5">REGISTER</h3>
+        <form action="./core/process_register.php" method="post" class="mx-5">
             <div class="input-group flex-nowrap my-3">
-                <span class="input-group-text" for="user"><i class="bi bi-person-circle"></i></span>
-                <input type="text" class="form-control" name="user" placeholder="Email or Username">
+                <span class="input-group-text" for="name"><i class="bi bi-person-vcard-fill"></i></span>
+                <input type="text" class="form-control" name="name" placeholder="Name">
             </div>
             <div class="input-group flex-nowrap my-3">
-                <span class="input-group-text" for="pwd"><i class="bi bi-key-fill"></i></span>
-                <input type="password" class="form-control" name="pwd" placeholder="Password">
+                <span class="input-group-text" for="email"><i class="bi bi-envelope-fill"></i></span>
+                <input type="text" class="form-control" name="email" placeholder="Email">
             </div>
+            <div class="input-group flex-nowrap my-3">
+                <span class="input-group-text" for="username"><i class="bi bi-person-circle"></i></span>
+                <input type="text" class="form-control" name="username" placeholder="Username">
+            </div>
+            <div class="input-group flex-nowrap my-3">
+                <span class="input-group-text" for="pwd1"><i class="bi bi-key-fill"></i></span>
+                <input type="password" class="form-control" name="pwd1" placeholder="Password">
+            </div>
+             <div class="input-group flex-nowrap my-3">
+                <span class="input-group-text" for="pwd2"><i class="bi bi-key-fill"></i></span>
+                <input type="password" class="form-control" name="pwd2" placeholder="Retype Password">
+            </div>
+            <a href="login.php" class = "btn btn-danger">Quay lại</a>
+
             <button type="submit" class="btn btn-success m-2" name="btnSubmit">
-                Login
+                Register
             </button>
-            <br>
-            <a href="register.php">Chưa có tài khoản, đăng ký ngay!</a>
     </div>
 
     </form>

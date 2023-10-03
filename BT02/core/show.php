@@ -9,7 +9,7 @@ try {
     require_once 'connect.php';
 
     $n = ($page - 1) * 10;
-    $sql = "SELECT id, name, join_date, mail, username FROM users ORDER BY id DESC LIMIT 10 OFFSET $n";
+    $sql = "SELECT id, name, join_date, mail, username, active FROM users ORDER BY id DESC LIMIT 10 OFFSET $n";
 
     $query = $conn->prepare($sql);
     $query->execute();
@@ -31,6 +31,15 @@ foreach ($users as $user) {
         <td><?php echo $user[2]; ?></td>
         <td><?php echo $user[3]; ?></td>
         <td><?php echo $user[4]; ?></td>
+        <td>
+            <?php
+            if ($user['active'] == 1) {
+                echo "active";
+            } else {
+                echo "inactive";
+            }
+            ?>
+        </td>
         <td>
             <a href="./core/form_edit_user.php?id=<?php echo $user['id'] ?>" class="btn btn-outline-warning">
                 <i class="bi bi-pencil-square"></i>
