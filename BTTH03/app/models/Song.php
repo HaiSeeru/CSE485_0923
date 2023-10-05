@@ -2,16 +2,19 @@
 
 class Song{
     private $id;
-    private $tenBaiHat;
-    private $caSi;
-    private $idTheLoai;
+    private $nameSong;
+    private $singer;
+    private $idCategory;
 
-    public function __construct($id, $tenBaiHat, $caSi, $idTheLoai){
+    public function __construct($id, $nameSong, $singer, $idCategory){
         $this->id = $id;
-        $this->tenBaiHat = $tenBaiHat;
-        $this->caSi = $caSi;
-        $this->idTheLoai = $idTheLoai;
+        $this->nameSong = $nameSong;
+        $this->singer = $singer;
+        $this->idCategory = $idCategory;
     }
+
+
+    
 
 	/**
 	 * @return mixed
@@ -32,48 +35,48 @@ class Song{
 	/**
 	 * @return mixed
 	 */
-	public function getTenBaiHat() {
-		return $this->tenBaiHat;
+	public function getNameSong() {
+		return $this->nameSong;
 	}
 	
 	/**
-	 * @param mixed $tenBaiHat 
+	 * @param mixed $nameSong 
 	 * @return self
 	 */
-	public function setTenBaiHat($tenBaiHat): self {
-		$this->tenBaiHat = $tenBaiHat;
+	public function setNameSong($nameSong): self {
+		$this->nameSong = $nameSong;
 		return $this;
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public function getCaSi() {
-		return $this->caSi;
+	public function getSinger() {
+		return $this->singer;
 	}
 	
 	/**
-	 * @param mixed $caSi 
+	 * @param mixed $singer 
 	 * @return self
 	 */
-	public function setCaSi($caSi): self {
-		$this->caSi = $caSi;
+	public function setSinger($singer): self {
+		$this->singer = $singer;
 		return $this;
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public function getIdTheLoai() {
-		return $this->idTheLoai;
+	public function getIdCategory() {
+		return $this->idCategory;
 	}
 	
 	/**
-	 * @param mixed $idTheLoai 
+	 * @param mixed $idCategory 
 	 * @return self
 	 */
-	public function setIdTheLoai($idTheLoai): self {
-		$this->idTheLoai = $idTheLoai;
+	public function setIdCategory($idCategory): self {
+		$this->idCategory = $idCategory;
 		return $this;
 	}
 }

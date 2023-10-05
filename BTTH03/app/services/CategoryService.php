@@ -5,7 +5,7 @@ require_once APP_ROOT . '/CSE485/BTTH03/app/libs/DBConnection.php';
 
 class CategoryService
 {
-    public function getAllCategory()
+    public function all()
     {
         $dbConnection = new DBConnection();
         $conn = $dbConnection->getConn();

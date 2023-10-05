@@ -25,6 +25,7 @@
                         <th scope="col">Mã bài hát</th>
                         <th scope="col">Tên bài hát</th>
                         <th scope="col">Ca sĩ</th>
+                       <th scope="col">Tên thể loại</th>
                         <th scope="col"></th>
                         
                     </tr>
@@ -37,19 +38,20 @@
                         <th scope="row">
                             <?php echo $song -> getId() ?>
                         </th>
-                        <td><?php echo $song -> getTenBaiHat() ?></td>
-                         <th scope="row">
-                            <?php echo $song -> getCaSi() ?>
-                        </th>
-                        <th scope="row">
+                        <td><?php echo $song -> getNameSong() ?></td>
+                         <td>
+                            <?php echo $song -> getSinger() ?>
+                        </td>
+                        <td>
+                            <?php echo $song -> getIdCategory() ?>
+                        </td>
+                        <td>
                             <a href="" class="btn btn-outline-warning">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
                             <a href="" class="btn btn-outline-warning">
                                 <i class="bi bi-trash3"></i>
-                            </a>
-                        
-                        
+                            </a>                       
                         </td>
                     </tr>
                     <?php

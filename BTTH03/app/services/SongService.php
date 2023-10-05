@@ -5,7 +5,7 @@ require_once APP_ROOT . '/CSE485/BTTH03/app/libs/DBConnection.php';
 
 class SongService
 {
-    public function getAllSong()
+    public function all()
     {
         $dbConnection = new DBConnection();
         $conn = $dbConnection->getConn();
@@ -25,7 +25,7 @@ class SongService
         
     }
 
-    public function addNewSong($name_song, $name_tg, $id_category){
+    public function add($name_song, $name_tg, $id_category){
         try{
             $dbConnection = new DBConnection();
             $conn = $dbConnection->getConn();

@@ -2,11 +2,11 @@
 
 class Category{
     private $id;
-    private $tenTheLoai;
+    private $nameCategory;
 
-    public function __construct($id, $tenTheLoai){
+    public function __construct($id, $nameCategory){
         $this->id = $id;
-        $this->tenTheLoai = $tenTheLoai;
+        $this->nameCategory = $nameCategory;
     }
 
 	/**
@@ -25,19 +25,21 @@ class Category{
 		return $this;
 	}
 
+    
+
 	/**
 	 * @return mixed
 	 */
-	public function getTenTheLoai() {
-		return $this->tenTheLoai;
+	public function getNameCategory() {
+		return $this->nameCategory;
 	}
 	
 	/**
-	 * @param mixed $tenTheLoai 
+	 * @param mixed $nameCategory 
 	 * @return self
 	 */
-	public function setTenTheLoai($tenTheLoai): self {
-		$this->tenTheLoai = $tenTheLoai;
+	public function setNameCategory($nameCategory): self {
+		$this->nameCategory = $nameCategory;
 		return $this;
 	}
 }
