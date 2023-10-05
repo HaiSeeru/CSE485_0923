@@ -22,8 +22,7 @@ class SongService
                 $songs[] = $song;
             }
             return $songs;
-        }
-        
+        }    
     }
 
     // Lấy ra theo id
@@ -93,7 +92,22 @@ class SongService
         }catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
+    }
 
+    public function delete($id){
+        try{
+            $dbConnection = new DBConnection();
+            $conn = $dbConnection->getConn();        
+
+            $sql = "DELETE FROM BaiHat WHERE id = $id";
+            $query = $conn->prepare($sql);
+            $query->execute();
+            $return = DOMAIN.'public/index.php';
+            header('Location: '.$return);
+                     
+        }catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
     }
 }
 

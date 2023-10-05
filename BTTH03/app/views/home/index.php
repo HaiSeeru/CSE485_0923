@@ -60,7 +60,7 @@
                             <a href="index.php?controller=song&action=edit&id=<?= $song->getId()?>" class="btn btn-outline-warning">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
-                            <a href="" class="btn btn-outline-warning">
+                            <a href="index.php?controller=song&action=delete&id=<?= $song->getId()?>" class="btn btn-outline-warning">
                                 <i class="bi bi-trash3"></i>
                             </a>                       
                         </td>

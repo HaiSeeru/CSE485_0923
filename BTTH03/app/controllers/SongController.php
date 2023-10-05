@@ -34,8 +34,14 @@ class SongController{
                 $songService->edit($id, $nameSong, $nameSinger, $idCategory);
             }
         }
-            
-        
         require_once APP_ROOT . '/CSE485/BTTH03/app/views/song/editSong.php';
+    }
+
+    public function delete(){
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $songService = new SongService();
+            $songService->delete($id);
+        }
     }
 }
