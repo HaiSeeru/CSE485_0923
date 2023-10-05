@@ -54,13 +54,15 @@ class SongService
             $query_check->execute();
             $rowCount = $query_check->rowCount();     
              if ($rowCount > 0) {
-                $return = DOMAIN.'public/index.php';
+                $res = "Bài hát này đã tồn tại";
+                $return = DOMAIN."public/index.php?controller=song&action=add&response=$res";
                 header('Location: '.$return);
              }else{
                 $sql = "INSERT INTO BaiHat(tenBaiHat, caSi, idTheLoai) VALUES ('$name_song', '$name_tg', '$id_category')";
                 $query = $conn->prepare($sql);
                 $query->execute();
-                $return = DOMAIN.'public/index.php';
+                $res = "Thêm thành công!";
+                $return = DOMAIN."public/index.php?response=$res";
                 header('Location: '.$return);
              }             
         }catch (PDOException $e) {
@@ -80,13 +82,15 @@ class SongService
             $query_check->execute();
             $rowCount = $query_check->rowCount();     
              if ($rowCount > 0) {
-                $return = DOMAIN."public/index.php?controller=song&action=edit&id=$id";
+                $res = "Bài hát này đã tồn tại";
+                $return = DOMAIN."public/index.php?controller=song&action=edit&id=$id&response=$res";
                 header('Location: '.$return);
              }else{
                 $sql = "UPDATE BaiHat SET tenBaiHat = '$nameSong', caSi = '$nameSinger', idTheloai = '$idCategory' WHERE id = $id";
                 $query = $conn->prepare($sql);
                 $query->execute();
-                $return = DOMAIN.'public/index.php';
+                $res = "Sửa thành công";
+                $return = DOMAIN."public/index.php?response=$res";
                 header('Location: '.$return);
              }             
         }catch (PDOException $e) {
@@ -102,7 +106,8 @@ class SongService
             $sql = "DELETE FROM BaiHat WHERE id = $id";
             $query = $conn->prepare($sql);
             $query->execute();
-            $return = DOMAIN.'public/index.php';
+            $res = "Xóa thành công";
+            $return = DOMAIN."public/index.php?response=$res";
             header('Location: '.$return);
                      
         }catch (PDOException $e) {
