@@ -7,19 +7,30 @@
     <title>Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-
 </head>
 
 <body>
-    <div class="row container vh-100 mx-auto">
-        
-        <div class="content text-center mx-auto">
+    <div class="container vh-100 mt-1 border border-success p-0">
+        <header class="bg-light">
+            <div class="container d-flex justify-content-between align-items-center py-4 border-bottom border-success">
+                <div class="d-flex align-items-center">
+                    <h1 style="color: green">Music</h1>
+                    <span class="h1">Garden</span>
+                </div>
+
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Tìm</button>
+                </form>
+            </div>
+        </header>
+        <div class="content text-center mx-auto bg-light mt-0">
 
             <table class="table">
-                <div class="header mt-5 d-flex align-items-center justify-content-between">
-                <h3 >Danh sách bài hát</h3>
-                <a href="<?= DOMAIN .'public/index.php?controller=song&action=add'?>" class="btn btn-success"><i class="bi bi-plus-lg"></i>Thêm bài hát</a>
-            </div>
+                <div class="d-flex align-items-center justify-content-between py-3 px-2">
+                    <h3 >Danh sách bài hát</h3>
+                    <a href="<?= DOMAIN .'public/index.php?controller=song&action=add'?>" class="btn btn-success"><i class="bi bi-plus-lg"></i>Thêm bài hát</a>
+                </div>
                 <thead>
                     <tr>
                         <th scope="col">Mã bài hát</th>
@@ -46,7 +57,7 @@
                             <?php echo $song -> getIdCategory() ?>
                         </td>
                         <td>
-                            <a href="" class="btn btn-outline-warning">
+                            <a href="index.php?controller=song&action=edit&id=<?= $song->getId()?>" class="btn btn-outline-warning">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
                             <a href="" class="btn btn-outline-warning">

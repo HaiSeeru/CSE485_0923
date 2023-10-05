@@ -24,27 +24,26 @@
                 </form>
             </div>
         </header>
-
         <div class="content text-center mx-auto p-3">
 
-            <h3 style="text-align: center; font-weight: 700;">THÊM MỚI BÀI HÁT</h3>
+            <h3 style="text-align: center; font-weight: 700;">CHỈNH SỬA BÀI HÁT</h3>
             <form action="" method="post">
                 <div class="input-group flex-nowrap mt-2">
                     <span class="input-group-text" for="name_song">Tên bài hát</span>
-                    <input type="text" class="form-control" name="name_song">
+                    <input type="text" class="form-control" value="<?= $song['tenBaiHat']?>" name="name_song">
                 </div>
                 <div class="input-group flex-nowrap mt-2">
                     <span class="input-group-text" for="name_tg">Ca sĩ</span>
-                    <input type="text" class="form-control" name="name_tg">
+                    <input type="text" class="form-control" value="<?= $song['caSi']?>" name="name_tg">
                 </div>
                 <div class="input-group flex-nowrap mt-2">
                     <span class="input-group-text" for="id_category">ID thể loại</span>
-                    <input type="text" class="form-control" name="id_category">
+                    <input type="text" class="form-control" value="<?= $song['idTheLoai']?>" name="id_category">
                 </div>
                 
                 <div class="btn_add_back">
-                    <button type="submit" class="btn btn-success m-2" name="btnAdd">
-                        Thêm
+                    <button type="submit" class="btn btn-success m-2" name="btnEdit">
+                        Cập nhật
                     </button>
                     <a href="<?= DOMAIN .'public/index.php'?>" class="btn btn-warning m-2">Quay lại</a>
 
@@ -52,8 +51,7 @@
 
             </form>
 
-        </div>
-
+            </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 

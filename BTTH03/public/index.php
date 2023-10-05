@@ -7,11 +7,13 @@ $controller = isset($_GET['controller'])?$_GET['controller']:'home';
 $action = isset($_GET['action'])? $_GET['action']:'index';
 
 
-$controller = ucfirst($controller); //Chuyển kí tự đầu sang in hoa: home > Home
+// chỉnh tên url
+$controller = ucfirst($controller); 
 
-$controller = $controller."Controller"; //Home > HomeController
-$path = "../app/controllers/".$controller.".php"; //HomeController > controllers/HomeController.php
-// echo $path;
+$controller = $controller."Controller"; 
+$path = "../app/controllers/".$controller.".php"; 
+
+// điều hướng tới path
 if(!file_exists($path)){
     die("Request not found. Check your path");
 }
