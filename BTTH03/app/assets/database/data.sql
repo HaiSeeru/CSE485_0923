@@ -1,10 +1,10 @@
-create database QuanLyBaiHat
-use QuanLyBaiHat
+create database QuanLyBaiHat;
+use QuanLyBaiHat;
 
 CREATE TABLE TheLoai(
 	id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
     tenTheLoai VARCHAR(255) NOT NULL
-)
+);
 
 
 CREATE TABLE BaiHat(
@@ -13,8 +13,8 @@ CREATE TABLE BaiHat(
     caSi varchar(255) not null,
     idTheLoai INT unsigned not null,
 	foreign key(idTheLoai) references TheLoai(id)
-)
-drop table BaiHat
+);
+
 insert into TheLoai(tenTheLoai) values
 	('Nhạc trẻ'),
 	('Nhạc vàng');
