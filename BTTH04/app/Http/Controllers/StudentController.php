@@ -22,7 +22,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
@@ -30,8 +30,17 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $data = $request->validate([
+        'name' => 'required|string',
+        'dateOfBorn' => 'required|date',
+        'numberphone' => 'required|string',
+        ]);
+
+        Student::create($data);
+
+        // Redirect to a success page or route
+        return redirect()->route('students.index')->with('success', 'Student created successfully');
+        }
 
     /**
      * Display the specified resource.

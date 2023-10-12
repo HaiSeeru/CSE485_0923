@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="container">
-    <h1>Student List</h1>
+    <div class="container d-flex justify-content-between align-items-center">
+        <h1>Students List</h1>
+        <a href="{{route('students.create')}}" class="btn btn-success m-0">Add</a>
+    </div>
+    
     <table class="table table-bordered">
         <thead>
             <tr>
