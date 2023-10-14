@@ -2,6 +2,18 @@
 
 @section('content')
 <div class="container">
+     @if ($message = Session::get('success'))
+            
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ $message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <script>
+            setTimeout(function () {
+                document.querySelector('.alert').style.display = 'none';
+            }, 5000); // 5000 milliseconds = 5 seconds
+        </script>
+    @endif
     <div class="container d-flex justify-content-between align-items-center">
         <h1>Students List</h1>
         <a href="{{route('students.create')}}" class="btn btn-success m-0">Add</a>
@@ -25,15 +37,15 @@
                     <td>{{ $student->dateOfBorn }}</td>
                     <td>{{ $student->numberphone }}</td>
                     <td>
-                        <form action="" method="post" class="text-center">
+                        <form action="{{route('students.destroy', $student->id)}}" method="post" class="text-center">
                             @csrf
                             @method('DELETE')
 
                             <a href="{{route('students.show', $student->id)}}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></a>
 
-                            <a href="" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a>   
+                            <a href="{{route('students.edit', $student->id)}}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a>   
 
-                            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash" onclick="return confirm('Do you want to delete this product?');"></i></button>
+                            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash" onclick="return confirm('Do you want to delete this student?');"></i></button>
                         </form>
                     </td>
                 </tr>
